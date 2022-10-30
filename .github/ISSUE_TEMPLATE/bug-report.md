@@ -28,6 +28,7 @@ A clear and concise description of what you expected to happen.
 - Device: [e.g. iPhone6]
 - OS: [e.g. iOS8.1]
 - App Version: [1.2.0+14]
+- Platform, Windows, Mac, linux etc
 
 ## Additional Context
 
@@ -44,3 +45,5 @@ Add any relevant screenshots here
 
 - [ ] Searched the [existing issues](https://github.com/champ96k/craft_pro/issues) to ensure you are not creating a duplicate.
 - [ ] Followed the [Contributor Guidelines](https://github.com/champ96k/craft_pro/blob/main/docs/CONTRIBUTING.md).
+
+<!-- //this is test -->
