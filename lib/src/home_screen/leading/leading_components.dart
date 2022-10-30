@@ -1,8 +1,20 @@
+import 'package:craft_pro/core/enum/view_enum.dart';
+import 'package:craft_pro/src/home_screen/cubit/home_screen_cubit.dart';
+import 'package:craft_pro/src/home_screen/leading/components/folder_builder.dart';
 import 'package:craft_pro/src/home_screen/leading/components/leading_list_components.dart';
+import 'package:craft_pro/src/home_screen/leading/components/leading_tapbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LeadingComponents extends StatelessWidget {
+class LeadingComponents extends StatefulWidget {
   const LeadingComponents({Key? key}) : super(key: key);
+
+  @override
+  State<LeadingComponents> createState() => _LeadingComponentsState();
+}
+
+class _LeadingComponentsState extends State<LeadingComponents> {
+  int _currentSelectedIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -21,66 +33,62 @@ class LeadingComponents extends StatelessWidget {
       child: Column(
         children: [
           _constSpace,
-
-          ///[Tap bar]
-          Container(
-            width: _size.width,
-            margin: const EdgeInsets.symmetric(horizontal: 20.0),
-            height: _size.height * 0.035,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-              color: Colors.grey.withOpacity(0.2),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Icon(
-                  Icons.calendar_view_week,
-                  size: 18.0,
-                  color: Colors.black45,
-                ),
-                Icon(
-                  Icons.calendar_today_outlined,
-                  size: 14.0,
-                  color: Colors.black45,
-                ),
-                Icon(
-                  Icons.search,
-                  size: 16.0,
-                  color: Colors.black45,
-                ),
-                Icon(
-                  Icons.notifications,
-                  color: Colors.black45,
-                  size: 16.0,
-                ),
-              ],
-            ),
-          ),
+          const LeadingTapBar(),
           _constSpace,
 
           ///[Listtile]
-          const LeadingListComponents(
+          LeadingListComponents(
             icon: Icons.list_alt_outlined,
-            isSelected: true,
+            isSelected: _currentSelectedIndex == 1,
             title: 'All Documents',
+            onTap: () {
+              context.read<HomeScreenCubit>().changeView();
+              setState(() => _currentSelectedIndex = 1);
+            },
           ),
-          const LeadingListComponents(
+          LeadingListComponents(
             icon: Icons.star_border,
+            isSelected: _currentSelectedIndex == 2,
             title: 'Starred',
+            onTap: () {
+              context
+                  .read<HomeScreenCubit>()
+                  .changeView(viewState: ViewState.started);
+              setState(() => _currentSelectedIndex = 2);
+            },
           ),
-          const LeadingListComponents(
+          LeadingListComponents(
+            isSelected: _currentSelectedIndex == 3,
             icon: Icons.sort_rounded,
             title: 'Unsorted',
+            onTap: () {
+              context
+                  .read<HomeScreenCubit>()
+                  .changeView(viewState: ViewState.unsorted);
+              setState(() => _currentSelectedIndex = 3);
+            },
           ),
-          const LeadingListComponents(
+          LeadingListComponents(
+            isSelected: _currentSelectedIndex == 4,
             icon: Icons.ten_mp,
             title: 'My Templets',
+            onTap: () {
+              context
+                  .read<HomeScreenCubit>()
+                  .changeView(viewState: ViewState.templets);
+              setState(() => _currentSelectedIndex = 4);
+            },
           ),
-          const LeadingListComponents(
+          LeadingListComponents(
             icon: Icons.swap_horizontal_circle_rounded,
             title: 'Shared Content',
+            isSelected: _currentSelectedIndex == 5,
+            onTap: () {
+              context
+                  .read<HomeScreenCubit>()
+                  .changeView(viewState: ViewState.shared);
+              setState(() => _currentSelectedIndex = 5);
+            },
           ),
 
           _constSpace,
@@ -100,60 +108,32 @@ class LeadingComponents extends StatelessWidget {
             ),
           ),
 
-          const LeadingListComponents(
-            icon: Icons.folder_open,
-            title: 'Morning standup',
-          ),
+          const FolderBuilder(),
 
-          const LeadingListComponents(
-            icon: Icons.folder_open,
-            title: 'Productivity Tips',
-          ),
-
-          const LeadingListComponents(
-            icon: Icons.folder_open,
-            title: 'Quick notes',
-          ),
-
-          const LeadingListComponents(
-            icon: Icons.folder_open,
-            title: 'Finance',
-          ),
-
-          const LeadingListComponents(
-            icon: Icons.folder_open,
-            title: 'Technical Interview',
-          ),
-
-          const LeadingListComponents(
-            icon: Icons.folder_open,
-            title: 'Tech Blogs',
-          ),
-
-          const LeadingListComponents(
-            icon: Icons.folder_open,
-            title: 'Reading list',
-          ),
-
-          const LeadingListComponents(
-            icon: Icons.folder_open,
-            title: 'Fitness',
-          ),
-
-          const LeadingListComponents(
+          LeadingListComponents(
             iconSize: 12.0,
             icon: Icons.arrow_forward_ios_outlined,
             title: '👋 How to used craft pro',
-            isSelected: true,
+            isSelected: _currentSelectedIndex == 7,
+            onTap: () {
+              setState(() => _currentSelectedIndex = 7);
+            },
           ),
 
           _constSpace,
 
           const Divider(color: Colors.black12),
 
-          const LeadingListComponents(
+          LeadingListComponents(
             icon: Icons.delete,
             title: 'Recently Deleted',
+            isSelected: _currentSelectedIndex == 6,
+            onTap: () {
+              context
+                  .read<HomeScreenCubit>()
+                  .changeView(viewState: ViewState.recentlyDeleted);
+              setState(() => _currentSelectedIndex = 6);
+            },
           ),
         ],
       ),
