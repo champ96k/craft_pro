@@ -9,6 +9,17 @@ class TrailingTopHeaders extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         children: const [
+          Icon(
+            Icons.arrow_back_ios,
+            size: 14.0,
+          ),
+          SizedBox(width: 16.0),
+          Icon(
+            Icons.arrow_forward_ios,
+            size: 14.0,
+            color: Colors.black38,
+          ),
+          SizedBox(width: 16.0),
           Text("Craft Pro"),
           Spacer(),
           Icon(Icons.add),
