@@ -43,4 +43,4 @@ Add any relevant screenshots here
 ## Checklist:
 
 - [ ] Searched the [existing issues](https://github.com/champ96k/craft_pro/issues) to ensure you are not creating a duplicate.
-- [ ] Followed the [Contributor Guidelines](https://github.com/champ96k/craft_pro/docs/CONTRIBUTING.md).
+- [ ] Followed the [Contributor Guidelines](https://github.com/champ96k/craft_pro/blob/main/docs/CONTRIBUTING.md).
