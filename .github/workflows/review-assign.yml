@@ -19,7 +19,7 @@ jobs:
           assignees: ${{ github.actor }}
           bot-accounts: some-bot
           reviewers: champ96k
-          #max-num-of-reviewers: 2
+          #max-num-of-reviewers: 2 
           draft-keyword: wip
           ready-comment: 'Ready for review :rocket: `<reviewers>`'
       - name: Show result
