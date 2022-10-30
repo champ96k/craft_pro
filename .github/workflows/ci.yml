@@ -51,19 +51,6 @@ jobs:
       - run: flutter clean
       - run: flutter build appbundle
 
-  build_for_ios_MacOS_only:
-    name: Build for iOS (MacOS only)
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
-        architecture: x64
-    - run: flutter pub get
-    - run: flutter test
-    - run: flutter build ios --release --no-codesign
-
   build_for_web:
     name: Build for the web
     runs-on: macos-latest
