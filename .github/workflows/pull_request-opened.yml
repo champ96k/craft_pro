@@ -2,23 +2,22 @@ name: Pull Request (Opened)
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, ready_for_review, reopened]
 
 jobs:
   security_hardening:
     name: Check security hardening
     runs-on: ubuntu-latest
     steps:
-    - name: Clone the repository
-      uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-    - name: Ensure SHA pinned actions
-      uses: zgosalvez/github-actions-ensure-sha-pinned-actions@8877889a5717dad0b139f1d2925689aa68f88a43
+      - name: Clone the repository
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Ensure SHA pinned actions
+        uses: zgosalvez/github-actions-ensure-sha-pinned-actions@8877889a5717dad0b139f1d2925689aa68f88a43
 
   assign_author:
     name: Assign Author to the Pull Request
     needs: security_hardening
     runs-on: ubuntu-latest
     steps:
-    - name: Assign Author to the Pull Request
-      uses: technote-space/assign-author@6252488282b99652aef47451a353eb88aea24666
-      
+      - name: Assign Author to the Pull Request
+        uses: technote-space/assign-author@6252488282b99652aef47451a353eb88aea24666
