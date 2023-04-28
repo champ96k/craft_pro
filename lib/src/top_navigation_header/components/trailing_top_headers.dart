@@ -23,8 +23,6 @@ class TrailingTopHeaders extends StatelessWidget {
           Text("Craft Pro"),
           Spacer(),
           Icon(Icons.add),
-          SizedBox(width: 20.0),
-          Icon(Icons.add),
         ],
       ),
     );

@@ -33,8 +33,11 @@ class SharedScreenState extends HomeScreenState {
 }
 
 class FolderViewScreenState extends HomeScreenState {
+  final FolderModel? folderModel;
+
+  FolderViewScreenState({this.folderModel});
   @override
-  List<Object?> get props => ['FolderViewScreenState'];
+  List<Object?> get props => [folderModel];
 }
 
 class RecentlyDeletediewScreenState extends HomeScreenState {

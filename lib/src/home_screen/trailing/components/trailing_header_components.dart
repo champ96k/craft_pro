@@ -23,7 +23,7 @@ class TrailingHeaderComponents extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: _size.height * 0.06,
-        width: _size.width * 0.18,
+        width: _size.width * 0.19,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),

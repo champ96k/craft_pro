@@ -1,5 +1,6 @@
 import 'package:craft_pro/core/constants/constant_colors.dart';
 import 'package:craft_pro/src/home_screen/home_screen.dart';
+import 'package:craft_pro/src/pages/cubit/text_editor_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,8 +22,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: ConstantColors.primaryColor,
       ),
-      home: BlocProvider<HomeScreenCubit>(
-        create: (context) => HomeScreenCubit(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<HomeScreenCubit>(
+            create: (context) => HomeScreenCubit(),
+          ),
+          BlocProvider<TextEditorCubit>(
+            create: (context) => TextEditorCubit(),
+          ),
+        ],
         child: const HomeScreen(),
       ),
     );

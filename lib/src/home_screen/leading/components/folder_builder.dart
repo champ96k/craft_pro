@@ -22,16 +22,16 @@ class _FolderBuilderState extends State<FolderBuilder> {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: Constants.folderItem.length,
       itemBuilder: (context, index) {
+        final item = Constants.folderItem[index];
         return LeadingListComponents(
-          count: Constants.folderItem[index].itemCount,
+          count: item.itemCount,
           isSelected: index == _foldertSelectedIndex,
-          title: Constants.folderItem[index].name,
-          emoji: Constants.folderItem[index].emoji,
+          title: item.name,
+          emoji: item.emoji,
           onTap: () {
             setState(() {
-              context
-                  .read<HomeScreenCubit>()
-                  .changeView(viewState: ViewState.folderView);
+              context.read<HomeScreenCubit>().changeView(
+                  viewState: ViewState.folderView, folderModel: item);
               _foldertSelectedIndex = index;
             });
           },

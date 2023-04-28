@@ -91,8 +91,6 @@ class _LeadingComponentsState extends State<LeadingComponents> {
             },
           ),
 
-          _constSpace,
-
           const ListTile(
             leading: Text(
               "Folders",

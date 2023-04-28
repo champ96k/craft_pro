@@ -1,4 +1,5 @@
 import 'package:craft_pro/core/enum/view_enum.dart';
+import 'package:craft_pro/core/model/folder_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,7 +8,10 @@ part 'home_screen_state.dart';
 class HomeScreenCubit extends Cubit<HomeScreenState> {
   HomeScreenCubit() : super(HomeScreenInitial());
 
-  Future<void> changeView({ViewState viewState = ViewState.view}) async {
+  Future<void> changeView({
+    ViewState viewState = ViewState.view,
+    FolderModel? folderModel,
+  }) async {
     try {
       switch (viewState) {
         case ViewState.edit:
@@ -27,7 +31,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
           break;
 
         case ViewState.folderView:
-          emit(FolderViewScreenState());
+          emit(FolderViewScreenState(folderModel: folderModel));
           break;
 
         case ViewState.recentlyDeleted:
