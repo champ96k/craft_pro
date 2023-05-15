@@ -1,8 +1,8 @@
-import 'package:craft_pro/core/constants/constant_colors.dart';
 import 'package:craft_pro/src/home_screen/home_screen.dart';
 import 'package:craft_pro/src/pages/cubit/text_editor_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:macos_ui/macos_ui.dart';
 
 import 'src/home_screen/cubit/home_screen_cubit.dart';
 
@@ -15,13 +15,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Craft Pro',
+    return MacosApp(
+      theme: MacosThemeData.light(),
+      darkTheme: MacosThemeData.dark(),
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: ConstantColors.primaryColor,
-      ),
       home: MultiBlocProvider(
         providers: [
           BlocProvider<HomeScreenCubit>(

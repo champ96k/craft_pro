@@ -1,5 +1,6 @@
 import 'package:craft_pro/src/home_screen/trailing/about/components/about_action_button.dart';
 import 'package:flutter/material.dart';
+import 'package:macos_ui/macos_ui.dart';
 
 class AboutTraillingTile extends StatelessWidget {
   const AboutTraillingTile({
@@ -57,6 +58,33 @@ class AboutTraillingTile extends StatelessWidget {
           ),
           _constSpacing,
           const Divider(),
+          _constSpacing,
+          const Spacer(),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: HelpButton(
+              onPressed: () => showMacosAlertDialog(
+                context: context,
+                builder: (context) => MacosAlertDialog(
+                  appIcon: const FlutterLogo(
+                    size: 56,
+                  ),
+                  title: const Text(
+                    'Alert Dialog with Primary Action',
+                  ),
+                  message: const Text(
+                    'This is an alert dialog with a primary action and no secondary action',
+                  ),
+                  primaryButton: PushButton(
+                    buttonSize: ButtonSize.large,
+                    onPressed: Navigator.of(context).pop,
+                    child: const Text('Primary'),
+                  ),
+                ),
+              ),
+              color: MacosColors.windowFrameColor,
+            ),
+          ),
           _constSpacing,
         ],
       ),

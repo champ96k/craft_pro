@@ -1,0 +1,4 @@
+enum DocumentsView {
+  gridView,
+  listView,
+}

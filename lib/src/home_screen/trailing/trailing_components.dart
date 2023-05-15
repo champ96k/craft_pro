@@ -35,6 +35,10 @@ class TrailingComponents extends StatelessWidget {
               child: BlocBuilder<HomeScreenCubit, HomeScreenState>(
                 builder: (context, state) {
                   if (state is EditScreenState) {
+                    final contain = state.model?.contain ?? ' ';
+                    context
+                        .read<TextEditorCubit>()
+                        .preFillValue(value: contain);
                     return Column(
                       children: [
                         FleatherToolbar.basic(

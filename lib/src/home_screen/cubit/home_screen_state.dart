@@ -8,28 +8,38 @@ class HomeScreenInitial extends HomeScreenState {
 }
 
 class EditScreenState extends HomeScreenState {
+  final EditorModel? model;
+  EditScreenState({required this.model});
   @override
-  List<Object?> get props => ['HomeScreenInitial'];
+  List<Object?> get props => [model];
 }
 
 class StartedScreenState extends HomeScreenState {
+  final List<EditorModel> models;
+  StartedScreenState({required this.models});
   @override
-  List<Object?> get props => ['StartedScreenState'];
+  List<Object?> get props => [models];
 }
 
 class UnsortedScreenState extends HomeScreenState {
+  final List<EditorModel> models;
+  UnsortedScreenState({required this.models});
   @override
-  List<Object?> get props => ['UnsortedScreenState'];
+  List<Object?> get props => [models];
 }
 
 class TempletsScreenState extends HomeScreenState {
+  final List<EditorModel> models;
+  TempletsScreenState({required this.models});
   @override
-  List<Object?> get props => ['TempletsScreenState'];
+  List<Object?> get props => [models];
 }
 
 class SharedScreenState extends HomeScreenState {
+  final List<EditorModel> models;
+  SharedScreenState({required this.models});
   @override
-  List<Object?> get props => ['SharedScreenState'];
+  List<Object?> get props => [models];
 }
 
 class FolderViewScreenState extends HomeScreenState {
@@ -41,8 +51,10 @@ class FolderViewScreenState extends HomeScreenState {
 }
 
 class RecentlyDeletediewScreenState extends HomeScreenState {
+  final List<EditorModel> models;
+  RecentlyDeletediewScreenState({required this.models});
   @override
-  List<Object?> get props => ['RecentlyDeletediewScreenState'];
+  List<Object?> get props => [models];
 }
 
 class ErrorState extends HomeScreenState {

@@ -28,6 +28,13 @@ class _EditComponentsState extends State<EditComponents> {
       onLaunchUrl: _launchUrl,
       enableInteractiveSelection: true,
       expands: true,
+      contextMenuBuilder: (context, editableTextState) {
+        return Text("No info ${editableTextState.textEditingValue.text}");
+      },
+      embedBuilder: (context, node) {
+        return Text("data: ${node.value}");
+      },
+      textCapitalization: TextCapitalization.sentences,
     );
   }
 
